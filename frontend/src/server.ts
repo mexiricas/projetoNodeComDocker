@@ -18,15 +18,16 @@ server.set('views', path.join(__dirname, 'views'));
 server.engine('mustache', mustache());
 
 server.use(express.static(path.join(__dirname, '../public')));
-
+server.use(express.urlencoded({extended:true}));
+server.use(express.json());
 server.use(mainRoutes);
 
 server.use((req, res)=>{
     res.render('pages/404');
 });
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost';
-server.listen(+PORT, HOST , ()=>{
+const PORT = parseInt(process.env.PORT as string);
+const HOST = process.env.HOST as string;
+server.listen(PORT, HOST , ()=>{
     console.log(`Servidor ativo na porta ${PORT} e no endereço ${HOST} `)
 });
