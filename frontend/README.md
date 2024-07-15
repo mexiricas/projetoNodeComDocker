@@ -1,4 +1,5 @@
-# Campanha
+# Campanha   
+npm install     
 
 ## Pré requisitos
  npm i express mustache-express dotenv    
