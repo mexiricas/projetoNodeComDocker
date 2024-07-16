@@ -7,11 +7,15 @@ npm install
  npm i --save-dev @types/express @types/mustache-express @types/node    
 
 
- ### Instalação
+ ### Instalação    
+
+instalar somente o docke da pasta banco de dados 
  docker-compose -up
 
 
-## Ainda não resolvi como criar a table dinamicamente entao crie a tabela 
+### Ainda não resolvi como criar a table dinamicamente entao crie a tabela    
+###  Aguarde ate o fim do precesso do docker   
+
 CREATE TABLE campanha (
 	id INT NOT NULL,
 	nome varchar(100) NULL,
