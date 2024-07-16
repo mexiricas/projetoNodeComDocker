@@ -17,14 +17,12 @@ instalar somente o docke da pasta banco de dados
 ###  Aguarde ate o fim do precesso do docker   
 
 CREATE TABLE campanha (
-	id INT NOT NULL,
-	nome varchar(100) NULL,
-	dataCadastro TIMESTAMP NULL,
-	dataInicio TIMESTAMP NULL,
-	dataFim TIMESTAMP NULL,
-	status INT NULL,
-	categoria varchar(100) NULL,
-	CONSTRAINT campanha_pk PRIMARY KEY (id)
-)
-
-ALTER TABLE CAMPANHA.campanha MODIFY COLUMN id int auto_increment NOT NULL;
+	id INT auto_increment NOT NULL,       
+	nome varchar(100) NULL,   
+	dataCadastro TIMESTAMP NULL,    
+	dataInicio TIMESTAMP NULL,    
+	dataFim TIMESTAMP NULL,     
+	status BOOLEAN NULL,     
+	categoria varchar(100) NULL,    
+	CONSTRAINT campanha_pk PRIMARY KEY (id)     
+);

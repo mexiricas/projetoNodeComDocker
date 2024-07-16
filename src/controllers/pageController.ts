@@ -48,24 +48,40 @@ export const selectCampanha = async (req: Request, res: Response) => {
 export const destroyCampanha = async (req: Request, res: Response) => {
     console.log('Exluindo uma Campanha ' + req.params.id )
     const { id } = req.params;
-    let campanha  = await Campanha.destroy({where: { id }});
-    res.status(200).json({ campanha }); 
-
+    let campanha  = await Campanha.findByPk(id);
+    if(campanha)
+        campanha.destroy();
 };
 
 export const updateCampanha = async (req: Request, res: Response) => {
     console.log('Atualizando Campanha ' + req.params.id )
-    const { id } = req.params;
+    const id: string = req.params.id;
     let campanha = await Campanha.findByPk(id);
     if(campanha){
-        campanha.nome = req.body.nome;
-        campanha.categoria = req.body.categoria;
+        if(req.body.nome && campanha.nome !== req.body.nome ) {
+            campanha.nome = req.body.nome;
+        }
+        if(req.body.dataInicio && campanha.dataInicio !== req.body.dataInicio ) {
+            campanha.dataInicio = req.body.dataInicio;
+        }
+        if(req.body.dataFim && campanha.dataFim !== req.body.dataIdataFimnicio ) {
+            campanha.dataFim = req.body.dataFim;
+        }
+        if(req.body.categoria && campanha.categoria !== req.body.categoria ) {
+            campanha.categoria = req.body.categoria;
+        }
+        if(req.body.status) {
+            switch(req.body.status.toLocaleLowerCase()){
+                case 'true':
+                case '1':
+                    campanha.status = true;
+                    break;
+                default: campanha.status = false;;
+            }
+        }
         let atualizado  = await campanha?.save();
         res.status(200).json({ atualizado });
     }else{
         res.status(404).json({error: 'Campanha não encontrada'})
     }
-    
-
-
 };

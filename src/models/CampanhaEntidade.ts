@@ -21,9 +21,11 @@ export const Campanha = sequelize.define<CampanhaInstance>('Campanha', {
     dataCadastro: DataTypes.DATE,
     dataInicio: DataTypes.DATE,
     dataFim: DataTypes.DATE,
-    status: DataTypes.INTEGER,
     categoria: DataTypes.STRING,
-
+    status: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
 }, {
     tableName: 'campanha',
     timestamps: false,
