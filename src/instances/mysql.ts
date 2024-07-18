@@ -1,18 +1,18 @@
 import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 
-dotenv.config();
+
+const {  DB_USER, DB_PASSWORD, DB_NAME, DB_HOST} = process.env;
 
 export const sequelize = new Sequelize(
 
     {
+        username: DB_USER,
+        password: DB_PASSWORD,
+        database: DB_NAME,
+        host: DB_HOST,
         dialect: 'mysql',
-        host: process.env.MYSQL_HOST as string,
-        password: process.env.MYSQL_PASSWORD as string,
-        username: process.env.MYSQL_USER as string,
-        database: process.env.MYSQL_DATABASE as string,
-        logging: false,
-        port: parseInt(process.env.MYSQL_PORT as string),
+        logging: false
     }
 
 );

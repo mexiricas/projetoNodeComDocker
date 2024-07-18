@@ -1,11 +1,10 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv/config';
 import cors from 'cors';
 import mustache from 'mustache-express';
 import path from 'path';
 import mainRoutes from  './routers/index';
 
-dotenv.config();
 
 const server = express();
 
@@ -26,7 +25,7 @@ server.use((req, res)=>{
     res.render('pages/404');
 });
 
-const PORT = parseInt(process.env.PORT as string);
+const PORT = parseInt(process.env.PORT as string) || 3000;
 const HOST = process.env.HOST as string;
 server.listen(PORT, HOST , ()=>{
     console.log(`Servidor ativo na porta ${PORT} e no endereço ${HOST} `)

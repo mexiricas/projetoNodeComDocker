@@ -8,9 +8,12 @@ npm install
 
 
  ### Instalação    
-
-instalar somente o docke da pasta banco de dados 
  docker-compose -up
+Agora a conexao dentro do containaer esta funcionando 
+Falta cria a database e as tabelas dinamicamente 
+
+
+ npx sequelize db:create
 
 
 ### Ainda não resolvi como criar a table dinamicamente entao crie a tabela    
