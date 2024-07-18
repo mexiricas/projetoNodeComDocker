@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Campanha } from '../models/CampanhaEntidade'
-import { Pet } from '../models/pet';
+import { Campanha } from '../databases/models/CampanhaEntity'
+import { Pet } from '../databases/models/PetEntity';
 // import { createMenuObject } from '../helpers/createMenuObject';
 
 export const home = (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../instances/mysql';
+import { sequelize } from '../config/database';
 
 export interface CampanhaInstance extends Model {
     id: number,

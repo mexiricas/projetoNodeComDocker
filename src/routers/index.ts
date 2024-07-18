@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import * as PageController from '../controllers/pageController';
-import  testConnection from '../instances/mysql';
+import * as PageController from '../controllers/pageController.controller';
+import  testConnection from '../databases/config/database';
 // import * as SearchController from '../controllers/searchController';
 
 const router = Router();
