@@ -2,10 +2,12 @@
 npm install     
 
 ## Pré requisitos
- npm i express mustache-express dotenv    
+ npm i express mustache-express dotenv joi  
  npm i nodemon typescript ts-node     
  npm i --save-dev @types/express @types/mustache-express @types/node    
-
+ npm i express-handlebars body-parser  sequelize  sequelize sqlite3 
+ npm i jsonwebtoken
+ npm i @types/jsonwebtoken
 
  ### Instalação    
  	docker-compose -up -d
@@ -14,8 +16,9 @@ npm install
 
 
 ### criar tabelas via linha de comando sequelize cli 
-	npx sequelize db:create
-	npx sequelize migration:generate --name campanha
+	npx sequelize db:create ## cria a data base
+	npx sequelize migration:generate --name campanha ## cria uma migration Objeto que sera uma Entidade de Banco
+	npx sequelize db:migrate ## Cria as tabelas no banco de dados a partir das migrations que foram preenchidas
 
 ### Ainda não resolvi como criar a table dinamicamente entao crie a tabela    
 ###  Aguarde ate o fim do precesso do docker   

@@ -1,5 +1,3 @@
-version: "3" ## especifica a versão do docker-compose file
-
 services: ## Define um serviço
   backend: ## nome do serviço
     build: . ## localização do dockerfile
